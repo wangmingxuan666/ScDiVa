@@ -233,17 +233,36 @@ We provide **pre-trained weights** and a **model architecture definition** for i
 from modeling_scdiva import ScDiVaModel
 import torch
 
-# Load pre-trained model directly from Hugging Face
-model = ScDiVaModel.from_pretrained("warming666/ScDiVa")
-model.eval()
+def main():
+    # 1. Load pre-trained model directly from Hugging Face
+    # This will trigger a download from 'warming666/ScDiVa' if huggingface_hub is installed
+    # Otherwise it falls back to random weights for demo purposes.
+    model = ScDiVaModel.from_pretrained("warming666/ScDiVa")
+    model.eval()
 
-# Inference example
-with torch.no_grad():
-    # input_data: gene expression matrix (batch_size, num_genes)
-    # Ensure input is properly normalized and tokenized
-    embeddings = model.encode(input_data)
-    predictions = model.predict(input_data, task="annotation")
+    # 2. Prepare Dummy Input Data
+    # Batch size = 2, Num genes = 41818 (based on ScDiVaConfig default)
+    batch_size = 2
+    num_genes = model.config.num_genes
+    input_data = torch.randn(batch_size, num_genes)
+    print(f"Input data shape: {input_data.shape}")
 
+    # 3. Inference example
+    with torch.no_grad():
+        # Ensure input is properly normalized and tokenized (Simulated here)
+        
+        # Get embeddings (Latent space)
+        print("Running encoder...")
+        embeddings = model.encode(input_data)
+        print(f"Embeddings (Latent) shape: {embeddings['latent'].shape}")
+        
+        # Run specific task (Annotation)
+        print("Running annotation prediction...")
+        predictions = model.predict(input_data, task="annotation")
+        print(f"Predictions shape: {predictions.shape}")
+
+if __name__ == "__main__":
+    main()
 ```
 
 ### Inference SDK
