@@ -37,13 +37,15 @@
 ---
 
 ## 🌟 Abstract
+ScDiVa (Single-cell Deep Variational Analysis; *scDiVa*) is a generative foundation model for single-cell representation learning, built on a **Masked Discrete Diffusion** framework that establishes an isomorphism between the forward diffusion process and sequencing **technical dropout**.  Parameterized by a bidirectional Transformer encoder, scDiVa adopts a **Dual Denoising Loss** to jointly model **gene identity** (topology) and **expression value** (dosage), enabling accurate recovery in both **Rank** and **Value** dimensions.  To robustly learn across extreme sparsity and depth variation, scDiVa further incorporates **Entropy-Normalized Serialization** and a **Depth-Invariant Sampling** strategy.  Pre-trained on **59,162,450** single-cell transcriptomes, scDiVa is systematically evaluated across tasks of increasing complexity, including **Rank-Value Joint Reconstruction**, **Multi-batch Integration**, **Cell Type Annotation** (fine-tuning and zero-shot), and **Perturbation Prediction**, with interpretability validated via **gene correlation analysis** and **Gene Regulatory Network (GRN) Inference and Logic** derived from model representations and attention signals. 
 
-**ScDiVa** (Single-cell Deep Variational Analysis) is a foundation model designed for comprehensive single-cell genomics analysis. Built upon transformer-based architecture, ScDiVa demonstrates exceptional performance across multiple downstream tasks including:
+## Downstream task list — keep exactly as paper
 
-- **Batch Effect Correction**: Seamlessly integrate single-cell data from different batches and experimental conditions
-- **Cell Type Annotation**: Accurate and efficient cell type identification across diverse tissues
-- **Multi-task Learning**: Unified framework supporting simultaneous execution of multiple analysis tasks
-- **Multi-modal Integration**: Capability to integrate different omics modalities
+* **Rank-Value Joint Reconstruction** 
+* **Multi-batch Integration** 
+* **Cell Type Annotation** (fine-tuning & zero-shot) 
+* **Perturbation Prediction** 
+* **Gene Regulatory Network (GRN) Inference and Logic** 
 
 ScDiVa achieves state-of-the-art performance on benchmark datasets while maintaining interpretability and biological relevance.
 
