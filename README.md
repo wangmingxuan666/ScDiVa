@@ -172,41 +172,63 @@ ScDiVa supports simultaneous execution of multiple analysis tasks, ensuring high
 
 ## 🗂️ Model Zoo
 
-We provide pre-trained and fine-tuned models for direct use:
+We provide the official pre-trained weights and task-specific fine-tuned checkpoints:
 
-### Pre-trained Models
+### Pre-trained Model
 
-| Model Name | Size | Training Data | Download |
-|-----------|------|---------------|----------|
-| ScDiVa-Base-Pretrain | 350M | 10M cells (Human) | [🤗 HF](https://huggingface.co/ScDiVa/base-pretrain) \| [🔧 MS](https://modelscope.cn/ScDiVa/base-pretrain) |
-| ScDiVa-Large-Pretrain | 1.5B | 20M cells (Human) | [🤗 HF](https://huggingface.co/ScDiVa/large-pretrain) \| [🔧 MS](https://modelscope.cn/ScDiVa/large-pretrain) |
+| Model Name | Parameters | Training Data | Description | Download |
+|:---|:---|:---|:---|:---|
+| **ScDiVa-Pretrain** | **~94.5M** | 59M cells (Multi-tissue) | The core foundation model pre-trained on 59 million single-cell transcriptomes. Supports zero-shot tasks and further fine-tuning. | [🤗 HF](https://huggingface.co/ScDiVa/pretrain) \| [🔧 MS](https://modelscope.cn/ScDiVa/pretrain) |
 
 ### Fine-tuned Models
 
-| Task | Base Model | Dataset | Download |
-|------|-----------|---------|----------|
-| Batch Integration | ScDiVa-Base | Immune Atlas | [🤗 HF](https://huggingface.co/ScDiVa/base-batch-integration) |
-| Cell Annotation | ScDiVa-Base | PanglaoDB | [🤗 HF](https://huggingface.co/ScDiVa/base-annotation) |
-| Multi-task | ScDiVa-Large | Combined | [🤗 HF](https://huggingface.co/ScDiVa/large-multitask) |
+We release fine-tuned weights for specific downstream tasks as reported in the paper:
+
+| Task | Datasets / Variants | Download |
+|:---|:---|:---|
+| **Batch Integration** | **5 Checkpoints available:**<br>• Immune Atlas<br>• PBMC12k<br>• BMMC (Bone Marrow)<br>• Perirhinal Cortex (Brain)<br>• COVID-19 (Lung) | [🤗 HF Collection](https://huggingface.co/collections/ScDiVa/batch-integration) |
+| **Cell Annotation (Fine-tuning)** | **4 Checkpoints available:**<br>• hPancreas<br>• Multiple Sclerosis (MS)<br>• Myeloid<br>• Myeloid_b | [🤗 HF Collection](https://huggingface.co/collections/ScDiVa/annotation-ft) |
+| **Perturbation Prediction** | **2 Checkpoints available:**<br>• Adamson (Single-gene)<br>• Norman (Double-gene/Combinatorial) | [🤗 HF Collection](https://huggingface.co/collections/ScDiVa/perturbation) |
+
+> **Note**: For **Zero-shot Cell Annotation**, please use the base `ScDiVa-Pretrain` model directly with the provided MLP head weights (available in the model repository).
 
 ---
 
 ## 📦 Datasets
 
-We provide curated downstream task datasets in the `datasets/` folder:
+We provide all pre-processed downstream task datasets used in our benchmarks (as detailed in Appendix B.4) in the `datasets/` folder:
 
-```
+```text
 datasets/
+├── reconstruction_grn/
+│   ├── immune.h5ad
+│   ├── hpancreas.h5ad
+│   ├── pbmc12k.h5ad
+│   └── zheng68k.h5ad
 ├── batch_integration/
 │   ├── immune_atlas.h5ad
-│   ├── pbmc.h5ad
+│   ├── pbmc12k.h5ad
+│   ├── bmmc.h5ad
+│   ├── perirhinal_cortex.h5ad
 │   └── covid19.h5ad
 ├── annotation/
-│   ├── panglao_train.h5ad
-│   └── panglao_test.h5ad
-└── multi_task/
-    └── combined_benchmark.h5ad
-```
+│   ├── fine_tuning/
+│   │   ├── hpancreas.h5ad
+│   │   ├── ms.h5ad
+│   │   ├── myeloid.h5ad
+│   │   └── myeloid_b.h5ad
+│   └── zero_shot/
+│       ├── cell_lines.h5ad
+│       ├── dc.h5ad
+│       ├── human_pbmc.h5ad
+│       ├── immune.h5ad
+│       ├── mca.h5ad
+│       ├── pbmc.h5ad
+│       ├── pbmc_368k.h5ad
+│       └── pancrm.h5ad
+└── perturbation/
+    ├── adamson.h5ad
+    └── norman.h5ad
 
 **Download**: Due to size limitations, datasets are hosted externally. Please download from:
 - 🤗 HuggingFace: [https://huggingface.co/datasets/ScDiVa/downstream-tasks](https://huggingface.co/datasets/ScDiVa/downstream-tasks)
