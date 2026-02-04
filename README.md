@@ -3,17 +3,17 @@
   <div style="max-width:1400px; margin:0 auto; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;">
 
     <!-- Line 1 -->
-    <div style="color:#2F55D4; font-weight:800; font-size:96px; line-height:1.05; letter-spacing:-0.02em; margin:0;">
+    <div style="color:#2F55D4; font-weight:800; font-size:75px; line-height:1.05; letter-spacing:-0.02em; margin:0;">
       ScDiVa
     </div>
 
     <!-- Line 2 -->
-    <div style="color:#333333; font-weight:800; font-size:80px; line-height:1.08; letter-spacing:-0.02em; margin-top:12px;">
+    <div style="color:#333333; font-weight:800; font-size:50px; line-height:1.08; letter-spacing:-0.02em; margin-top:12px;">
       A Foundation Model for Single-cell Genomics
     </div>
 
     <!-- Line 3 -->
-    <div style="color:#666666; font-weight:300; font-size:44px; line-height:1.35; margin-top:28px;">
+    <div style="color:#666666; font-weight:300; font-size:20px; line-height:1.35; margin-top:28px;">
       Core Competence: Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
     </div>
 
