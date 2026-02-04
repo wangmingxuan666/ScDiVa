@@ -3,7 +3,7 @@
 # ScDiVa: A Foundation Model for Single-cell Genomics
 
 <p align="center">
-  <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="600"/>
+  <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="1200"/>
 </p>
 
 
