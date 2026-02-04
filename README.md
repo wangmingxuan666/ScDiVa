@@ -67,7 +67,7 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 ## 📊 Main Results
 
-### 🔬 Batch Integration Performance
+### 🔬 Multi-Batch Integration
 
 ScDiVa demonstrates superior batch integration capabilities, balancing technical noise removal (Avg-Batch) with biological conservation (Avg-Bio) across diverse benchmarks:
 
@@ -248,7 +248,7 @@ with torch.no_grad():
 
 ### Inference SDK
 
-**Note**: The inference SDK is currently undergoing internal company review for open-source release. We plan to make it publicly available upon the paper's acceptance. For early access or inquiries, please contact us at [contact@scdiva.ai](mailto:contact@scdiva.ai).
+**Note**: The inference SDK is currently undergoing internal company review for open-source release. We plan to make it publicly available upon the paper's acceptance. For early access or inquiries, please contact us at [wangmx2025@ruc.edu.cn](wangmx2025@ruc.edu.cn).
 
 ---
 
