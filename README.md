@@ -289,8 +289,7 @@ annotations = engine.annotate(adata)
 integrated_adata = engine.integrate_batches(adata_list)
 ```
 
-**Note**: The inference SDK will be released upon paper acceptance. For early access, please contact us at [contact@scdiva.ai](mailto:contact@scdiva.ai).
-
+**Note**: The inference SDK is currently undergoing internal company review for open-source release. We plan to make it publicly available upon the paper's acceptance. For early access or inquiries, please contact us at [contact@scdiva.ai](mailto:contact@scdiva.ai).
 ---
 
 ## 📖 Documentation
