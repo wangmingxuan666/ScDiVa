@@ -1,7 +1,7 @@
-<!-- Hero (strict layout like the screenshot) -->
-<div style="background:#fff; padding:72px 72px 40px;">
+<!-- HERO: strict layout like the screenshot (left aligned, 3 lines, colors) -->
+<div style="background:#ffffff; padding:72px 72px 40px;">
   <div style="max-width:1400px; margin:0 auto; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;">
-    
+
     <!-- Line 1 -->
     <div style="color:#2F55D4; font-weight:800; font-size:96px; line-height:1.05; letter-spacing:-0.02em; margin:0;">
       ScDiVa
@@ -20,11 +20,10 @@
   </div>
 </div>
 
-<!-- Image below (keep centered if you want) -->
-<p align="center" style="margin-top:24px;">
+<!-- Image below -->
+<p align="center" style="margin:24px 0 0;">
   <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="1200"/>
 </p>
-
 
 
 ---
