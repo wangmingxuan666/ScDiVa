@@ -78,6 +78,8 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and **Spearman** (↑) across multiple datasets.
 
+<div align="center" markdown="1">
+
 #### PBMC12k
 
 | Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
@@ -113,7 +115,7 @@ We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and *
 | Geneformer | 17 | 0.962 | 0.823 |
 | GeneMamba | 12 | **0.998** 🏆 | 0.844 |
 | **scDiVa** | **4** 🏆 | 0.997 | **0.970** 🏆 |
-
+</div>
 
 ### 🔬 Multi-Batch Integration
 
