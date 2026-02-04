@@ -112,21 +112,15 @@ ScDiVa achieves high accuracy in both fine-tuning (for specific tissues) and zer
 
 <div align="center" markdown="1">
 
-*Comparison of scDiVa against leading baselines across diverse benchmarks.*
+*Evaluation of fine-tuning (adaptability) and zero-shot (generalization) capabilities.*
 
-| Dataset | Metric | Harmony | scGPT | **scDiVa** |
-| :--- | :---: | :---: | :---: | :---: |
-| **PBMC12k** | Avg-Batch | 0.9341 | 0.9755 | **0.9960** 🏆 |
-| | Avg-Bio | 0.7990 | 0.9018 | **0.9566** 🏆 |
-| **Immune** | Avg-Batch | 0.9514 | 0.9194 | **0.9555** 🏆 |
-| | Avg-Bio | 0.6945 | **0.7879** 🏆| 0.7785 |
-| **BMMC** | Avg-Batch | 0.8999 | 0.8431 | **0.9734** 🏆 |
-| | Avg-Bio | 0.6316 | 0.6576 | **0.8712** 🏆 |
-| **Perirhinal** | Avg-Batch | 0.9442 | **0.9600** 🏆| 0.9542 |
-| | Avg-Bio | 0.8595 | 0.9552 | **0.9895** 🏆 |
-| **COVID-19** | Avg-Batch | 0.8781 | 0.8625 | **0.9538** 🏆 |
-| | Avg-Bio | 0.4468 | 0.6476 | **0.6689** 🏆 |
-
+| Dataset | Task | Metric | scDiVa Performance | vs. SOTA / Baseline |
+| :--- | :---: | :---: | :---: | :--- |
+| **hPancreas** | Fine-tuning | Accuracy | **98.6%** 🏆 | State-of-the-art |
+|  |  | Macro-F1 | **0.7919** 🏆 | High discriminative power |
+| **MS** | Fine-tuning | Macro-F1 | **0.7271** 🏆 | **+36%** over GeneMamba (0.5342) |
+| **Zero-shot Avg** | Zero-shot | Accuracy | **91.4%** 🏆 | Outperforms scGPT (76.3%) |
+|  |  | Macro-F1 | **0.841** 🏆 | Strong generalization across 8 datasets |
 </div>
 
 <div align="center">
