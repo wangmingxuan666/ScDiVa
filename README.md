@@ -15,7 +15,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Models-yellow)](https://huggingface.co/warming666/ScDiVa)
 
-[📖 Paper](https://arxiv.org/abs/2602.03477) | [🤗 HuggingFace](https://huggingface.co/warming666/ScDiVa) | [🔧 ModelScope](https://modelscope.cn/models/warming666/ScDiVa) | [📊 Demo](https://demo.scdiva.ai)
+[📖 Paper](https://arxiv.org/abs/2602.03477) | [🤗 HuggingFace](https://huggingface.co/warming666/ScDiVa) | [📊 Demo](https://demo.scdiva.ai)
 
 </div>
 
