@@ -6,24 +6,8 @@
   <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="600"/>
 </p>
 
-## 🔄 工作流程总览
 
-```mermaid
-graph LR
-    A[单细胞数据] --> B[ScDiVa Encoder]
-    B --> C[变分潜在空间]
-    C --> D[批次整合]
-    C --> E[细胞注释]
-    C --> F[多任务分析]
-    
-    style B fill:#4CAF50
-    style C fill:#2196F3
-    style D fill:#FF9800
-    style E fill:#FF9800
-    style F fill:#FF9800
-```
-
-**核心能力**: 批次整合 | 细胞注释 | 多任务学习 | 跨物种泛化
+**Core Competence**: Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-2026.xxxxx-b31b1b.svg)](https://arxiv.org/abs/2026.xxxxx)
@@ -63,20 +47,20 @@ ScDiVa achieves state-of-the-art performance on benchmark datasets while maintai
 <div align="center">
   <img src="./assets/scDiVa.png" alt="ScDiVa Model Architecture" width="800"/>
 </div>
+ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidirectional Transformer encoder. The architecture features the following key components:
 
-ScDiVa employs a **transformer-based encoder architecture** with the following key components:
-
-- **Gene Expression Encoder**: Processes high-dimensional gene expression profiles
-- **Variational Latent Space**: Captures biological variations while maintaining cell identity
-- **Multi-head Attention Mechanism**: Enables modeling of complex gene-gene interactions
-- **Task-specific Decoders**: Specialized modules for different downstream applications
+- **Dual Denoising Objective**: Simultaneously optimizes gene identity reconstruction (topology) and expression value regression (dosage).
+- **Latent Encoder**: Introduces a `[LAT]` anchor token to aggregate global cell context and prevent posterior collapse during generation.
+- **Entropy-Normalized Serialization**: Prioritizes discriminative genes over housekeeping noise based on population-level Shannon entropy.
+- **Depth-Invariant Sampling**: Simulates varying sequencing depths to ensure robust generalization across sparse datasets.
 
 ### Model Specifications
 
-| Model | Parameters | Hidden Size | Layers | Attention Heads | Context Length |
+| Model | Parameters | Hidden Size | Layers | Attention Heads | Max Seq Length |
 |-------|-----------|-------------|--------|----------------|----------------|
-| ScDiVa-Base | 350M | 1024 | 24 | 16 | 20,000 genes |
-| ScDiVa-Large | 1.5B | 2048 | 32 | 32 | 30,000 genes |
+| **ScDiVa** | **~94.5M** | 512 | 12 | 8 | 1,200 genes |
+
+> *Note: Configuration uses **SwiGLU** activation, **RoPE** positional embeddings, and **RMSNorm** for stability.*
 
 ---
 
@@ -85,18 +69,33 @@ ScDiVa employs a **transformer-based encoder architecture** with the following k
 ### 🔬 Batch Integration Performance
 
 <div align="center">
-  <img src="./assets/batch_immune.png" alt="Batch Integration Results" width="700"/>
+  <img src="./assets/Multi.png" alt="Batch Integration Results" width="700"/>
 </div>
 
-ScDiVa demonstrates superior batch integration capabilities across diverse immune cell datasets:
+ScDiVa demonstrates superior batch integration capabilities, balancing technical noise removal (Avg-Batch) with biological conservation (Avg-Bio) across diverse benchmarks:
 
-| Dataset | #Cells | #Batches | ASW Score ↑ | kBET ↑ | Graph Connectivity ↑ |
-|---------|--------|----------|-------------|--------|---------------------|
-| PBMC | 150K | 8 | **0.82** | **0.75** | **0.91** |
-| Immune Atlas | 500K | 15 | **0.79** | **0.71** | **0.88** |
-| COVID-19 | 200K | 12 | **0.81** | **0.73** | **0.90** |
+<div align="center">
 
-*Metrics: ASW (Average Silhouette Width), kBET (k-nearest neighbor Batch Effect Test)*
+### 🔬 Comprehensive Batch Integration Performance
+
+*Comparison of scDiVa against leading baselines across diverse benchmarks.*
+
+| Dataset | Metric | Harmony | scGPT | **scDiVa** |
+| :--- | :---: | :---: | :---: | :---: |
+| **PBMC12k** | Avg-Batch $\uparrow$ | 0.9341 | 0.9755 | **0.9960** 🏆 |
+| | Avg-Bio $\uparrow$ | 0.7990 | 0.9018 | **0.9566** 🏆 |
+| **Immune** | Avg-Batch $\uparrow$ | 0.9514 | 0.9194 | **0.9555** 🏆 |
+| | Avg-Bio $\uparrow$ | 0.6945 | **0.7879** 🏆| 0.7785 |
+| **BMMC** | Avg-Batch $\uparrow$ | 0.8999 | 0.8431 | **0.9734** 🏆 |
+| | Avg-Bio $\uparrow$ | 0.6316 | 0.6576 | **0.8712** 🏆 |
+| **Perirhinal** | Avg-Batch $\uparrow$ | 0.9442 | **0.9600** 🏆| 0.9542 |
+| | Avg-Bio $\uparrow$ | 0.8595 | 0.9552 | **0.9895** 🏆 |
+| **COVID-19** | Avg-Batch $\uparrow$ | 0.8781 | 0.8625 | **0.9538** 🏆 |
+| | Avg-Bio $\uparrow$ | 0.4468 | 0.6476 | **0.6689** 🏆 |
+
+<br>
+
+</div>
 
 ---
 
@@ -106,48 +105,69 @@ ScDiVa demonstrates superior batch integration capabilities across diverse immun
   <img src="./assets/Anno.png" alt="Cell Annotation Results" width="700"/>
 </div>
 
-ScDiVa achieves high accuracy in automated cell type annotation:
-
-| Tissue Type | #Cell Types | Accuracy | F1-Score | Inference Time (s) |
-|-------------|-------------|----------|----------|-------------------|
-| PBMC | 18 | **95.3%** | **0.94** | 0.08 |
-| Brain | 25 | **92.7%** | **0.91** | 0.12 |
-| Pancreas | 14 | **96.1%** | **0.95** | 0.06 |
-| Heart | 20 | **93.8%** | **0.93** | 0.10 |
-
----
-
-### 🎯 Multi-task & Multi-modal Performance
+ScDiVa achieves high accuracy in both fine-tuning (for specific tissues) and zero-shot scenarios:
 
 <div align="center">
-  <img src="./assets/Multi.png" alt="Multi-task Results" width="700"/>
+
+### 🏷️ Comprehensive Cell Type Annotation Performance
+
+*Evaluation of fine-tuning (adaptability) and zero-shot (generalization) capabilities.*
+
+| Dataset | Task | Metric | scDiVa Performance | vs. SOTA / Baseline |
+| :--- | :---: | :---: | :---: | :--- |
+| **hPancreas** | Fine-tuning | Accuracy $\uparrow$ | **98.6%** 🏆 | State-of-the-art |
+| | | Macro-F1 $\uparrow$ | **0.7919** 🏆 | High discriminative power |
+| **MS** | Fine-tuning | Macro-F1 $\uparrow$ | **0.7271** 🏆 | **+36%** over GeneMamba (0.5342) |
+| **Zero-shot Avg** | Zero-shot | Accuracy $\uparrow$ | **91.4%** 🏆 | Outperforms scGPT (76.3%) |
+| | | Macro-F1 $\uparrow$ | **0.841** 🏆 | Strong generalization across 8 datasets |
+
+<br>
+
 </div>
-
-ScDiVa supports simultaneous execution of multiple analysis tasks with minimal performance degradation:
-
-- **Single-task baseline**: 94.2% average accuracy
-- **Multi-task (3 tasks)**: 93.5% average accuracy (0.7% drop)
-- **Multi-task (5 tasks)**: 92.8% average accuracy (1.4% drop)
 
 ---
 
-### 🎨 Visualization Gallery
+## 📉 Other Task Results Display
 
+ScDiVa extends its capabilities to complex causal inference and interpretability tasks. By fine-tuning on perturbation datasets, the model effectively bridges the causal gap to predict transcriptional responses to both single and combinatorial genetic interventions. Furthermore, ScDiVa's intrinsic attention mechanisms allow for the direct extraction of interpretable global Gene Regulatory Networks (GRN), successfully recovering known biological logic such as the SPI1 regulon and critical immune pathway interactions.
+
+
+<div align="center">
+  <img src="./assets/0.png" alt="Perturbation and Evaluation" width="700"/>
+</div>
+
+ScDiVa supports simultaneous execution of multiple analysis tasks, ensuring high-fidelity reconstruction while modeling complex genetic interactions:
+
+- **Rank-Value Reconstruction**: Achieves record Spearman correlations on Immune (**0.970**) and PBMC12k (**0.812**) datasets.
+- **Perturbation Prediction (Adamson)**: Achieves a Pearson correlation of **0.837** and MSE of **0.134**.
+- **Combinatorial Prediction (Norman)**: Successfully models non-additive genetic interactions with a correlation of **0.709**.
+
+---
 <table>
   <tr>
-    <td align="center">
-      <img src="./assets/0.png" alt="UMAP Visualization" width="350"/>
+    <td width="45%" align="center" valign="middle">
+      <img src="./assets/2.png" alt="GRN Inference" width="100%"/>
       <br>
-      <b>UMAP Projection</b>
+      <b>Gene Regulatory Network Inference</b>
     </td>
-    <td align="center">
-      <img src="./assets/2.png" alt="Cell Trajectory" width="350"/>
-      <br>
-      <b>Cell Differentiation Trajectory</b>
+    <td width="55%" valign="top">
+      <h3>🧬 Interpretability & Regulatory Logic</h3>
+      <p>ScDiVa natively captures interpretable gene regulatory networks (GRN) via its attention mechanism:</p>
+      <ul>
+        <li>
+          <b>Global Topology (Fig a):</b> The global GRN visualization confirms the model's ability to distinguish functional clusters and validated interactions.
+        </li>
+        <li>
+          <b>Master Regulator Discovery (Fig b):</b> Successfully reconstructs the <b>SPI1 regulon</b>, capturing its precise logic of <i>promoting</i> myeloid markers (e.g., <code>MS4A3</code>) while <i>repressing</i> erythroid genes (e.g., <code>HBG1/2</code>).
+        </li>
+        <li>
+          <b>Regulatory Hubs (Fig c):</b> Attention heatmaps reveal dense connectivity clusters, identifying high-order coupling between immune defense pathways (e.g., <code>ISG15</code>, <code>SERPING1</code>) and cytoskeletal remodeling.
+        </li>
+      </ul>
     </td>
   </tr>
 </table>
-
+> 💡 **For more specific experimental results, additional metrics, and comprehensive analysis, please check the [Original Paper](https://arxiv.org/).**
 ---
 
 ## 🗂️ Model Zoo
