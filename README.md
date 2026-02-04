@@ -252,17 +252,6 @@ with torch.no_grad():
 
 ---
 
-## 📖 Documentation
-
-For detailed tutorials and API documentation, please visit:
-
-* 📘 [Model Architecture Details](https://www.google.com/search?q=./docs/model_architecture.md)
-* 📗 [Fine-tuning Guide](https://www.google.com/search?q=./docs/finetuning.md)
-* 📙 [Inference Tutorial](https://www.google.com/search?q=./docs/inference.md)
-* 📕 [Benchmark Results](https://www.google.com/search?q=./docs/benchmarks.md)
-
----
-
 ## 📄 Citation
 
 If you find ScDiVa useful in your research, please consider citing:
@@ -281,12 +270,13 @@ If you find ScDiVa useful in your research, please consider citing:
 
 ## 📧 Contact
 
-* **Email**: contact@scdiva.ai
+* **Email**: wangmx2025@ruc.edu.cn
 * **Issues**: [GitHub Issues](https://www.google.com/search?q=https://github.com/warming666/ScDiVa/issues)
 
 ---
 
 <div align="center">
-<sub>Built with ❤️ by the ScDiVa Team</sub>
+<sub>
+Thank you to everyone who has helped me.</sub>
 </div>
 
