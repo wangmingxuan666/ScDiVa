@@ -3,7 +3,7 @@
 # ScDiVa: A Foundation Model for Single-cell Genomics
 
 <p align="center">
-  <img src="./assets/scDiVa.pdf" alt="ScDiVa Architecture" width="600"/>
+  <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="600"/>
 </p>
 
 ## 🔄 工作流程总览
@@ -61,7 +61,7 @@ ScDiVa achieves state-of-the-art performance on benchmark datasets while maintai
 ## 🏗️ Model Architecture
 
 <div align="center">
-  <img src="./assets/scDiVa.pdf" alt="ScDiVa Model Architecture" width="800"/>
+  <img src="./assets/scDiVa.png" alt="ScDiVa Model Architecture" width="800"/>
 </div>
 
 ScDiVa employs a **transformer-based encoder architecture** with the following key components:
@@ -85,7 +85,7 @@ ScDiVa employs a **transformer-based encoder architecture** with the following k
 ### 🔬 Batch Integration Performance
 
 <div align="center">
-  <img src="./assets/batch_immune.pdf" alt="Batch Integration Results" width="700"/>
+  <img src="./assets/batch_immune.png" alt="Batch Integration Results" width="700"/>
 </div>
 
 ScDiVa demonstrates superior batch integration capabilities across diverse immune cell datasets:
@@ -103,7 +103,7 @@ ScDiVa demonstrates superior batch integration capabilities across diverse immun
 ### 🏷️ Cell Type Annotation
 
 <div align="center">
-  <img src="./assets/Anno.pdf" alt="Cell Annotation Results" width="700"/>
+  <img src="./assets/Anno.png" alt="Cell Annotation Results" width="700"/>
 </div>
 
 ScDiVa achieves high accuracy in automated cell type annotation:
@@ -120,7 +120,7 @@ ScDiVa achieves high accuracy in automated cell type annotation:
 ### 🎯 Multi-task & Multi-modal Performance
 
 <div align="center">
-  <img src="./assets/Multi.pdf" alt="Multi-task Results" width="700"/>
+  <img src="./assets/Multi.png" alt="Multi-task Results" width="700"/>
 </div>
 
 ScDiVa supports simultaneous execution of multiple analysis tasks with minimal performance degradation:
@@ -136,12 +136,12 @@ ScDiVa supports simultaneous execution of multiple analysis tasks with minimal p
 <table>
   <tr>
     <td align="center">
-      <img src="./assets/0.pdf" alt="UMAP Visualization" width="350"/>
+      <img src="./assets/0.png" alt="UMAP Visualization" width="350"/>
       <br>
       <b>UMAP Projection</b>
     </td>
     <td align="center">
-      <img src="./assets/2.pdf" alt="Cell Trajectory" width="350"/>
+      <img src="./assets/2.png" alt="Cell Trajectory" width="350"/>
       <br>
       <b>Cell Differentiation Trajectory</b>
     </td>
@@ -267,12 +267,12 @@ For detailed tutorials and API documentation, please visit:
 ```
 ScDiVa/
 ├── assets/                    # Images and figures
-│   ├── scDiVa.pdf
-│   ├── batch_immune.pdf
-│   ├── Anno.pdf
-│   ├── Multi.pdf
-│   ├── 0.pdf
-│   └── 2.pdf
+│   ├── scDiVa.png
+│   ├── batch_immune.png
+│   ├── Anno.png
+│   ├── Multi.png
+│   ├── 0.png
+│   └── 2.png
 ├── docs/                      # Documentation
 │   ├── model_architecture.md
 │   ├── finetuning.md
