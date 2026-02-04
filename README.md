@@ -50,7 +50,7 @@
       overflow-wrap:anywhere;
       word-break:break-word;
     ">
-      Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis1
+      Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
     </div>
 
   </div>
