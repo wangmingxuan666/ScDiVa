@@ -39,7 +39,7 @@
 ## 🌟 Abstract
 ScDiVa (Single-cell Deep Variational Analysis; *scDiVa*) is a generative foundation model for single-cell representation learning, built on a **Masked Discrete Diffusion** framework that establishes an isomorphism between the forward diffusion process and sequencing **technical dropout**.  Parameterized by a bidirectional Transformer encoder, scDiVa adopts a **Dual Denoising Loss** to jointly model **gene identity** (topology) and **expression value** (dosage), enabling accurate recovery in both **Rank** and **Value** dimensions.  To robustly learn across extreme sparsity and depth variation, scDiVa further incorporates **Entropy-Normalized Serialization** and a **Depth-Invariant Sampling** strategy.  Pre-trained on **59,162,450** single-cell transcriptomes, scDiVa is systematically evaluated across tasks of increasing complexity, including **Rank-Value Joint Reconstruction**, **Multi-batch Integration**, **Cell Type Annotation** (fine-tuning and zero-shot), and **Perturbation Prediction**, with interpretability validated via **gene correlation analysis** and **Gene Regulatory Network (GRN) Inference and Logic** derived from model representations and attention signals. 
 
-## Downstream task list — keep exactly as paper
+## Downstream task list
 
 * **Rank-Value Joint Reconstruction** 
 * **Multi-batch Integration** 
@@ -80,7 +80,7 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 ScDiVa demonstrates superior batch integration capabilities, balancing technical noise removal (Avg-Batch) with biological conservation (Avg-Bio) across diverse benchmarks:
 
-<div align="center">
+<div align="center" markdown="1">
 
 *Comparison of scDiVa against leading baselines across diverse benchmarks.*
 
@@ -99,6 +99,7 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 
 </div>
 
+
 <div align="center">
   <img src="./assets/Multi.png" alt="Batch Integration Results" width="700"/>
 </div>
@@ -109,17 +110,22 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 
 ScDiVa achieves high accuracy in both fine-tuning (for specific tissues) and zero-shot scenarios:
 
-<div align="center">
+<div align="center" markdown="1">
 
-*Evaluation of fine-tuning (adaptability) and zero-shot (generalization) capabilities.*
+*Comparison of scDiVa against leading baselines across diverse benchmarks.*
 
-| Dataset | Task | Metric | scDiVa Performance | vs. SOTA / Baseline |
-| :--- | :---: | :---: | :---: | :--- |
-| **hPancreas** | Fine-tuning | Accuracy | **98.6%** 🏆 | State-of-the-art |
-| | | Macro-F1 | **0.7919** 🏆 | High discriminative power |
-| **MS** | Fine-tuning | Macro-F1 | **0.7271** 🏆 | **+36%** over GeneMamba (0.5342) |
-| **Zero-shot Avg** | Zero-shot | Accuracy | **91.4%** 🏆 | Outperforms scGPT (76.3%) |
-| | | Macro-F1 | **0.841** 🏆 | Strong generalization across 8 datasets |
+| Dataset | Metric | Harmony | scGPT | **scDiVa** |
+| :--- | :---: | :---: | :---: | :---: |
+| **PBMC12k** | Avg-Batch | 0.9341 | 0.9755 | **0.9960** 🏆 |
+| | Avg-Bio | 0.7990 | 0.9018 | **0.9566** 🏆 |
+| **Immune** | Avg-Batch | 0.9514 | 0.9194 | **0.9555** 🏆 |
+| | Avg-Bio | 0.6945 | **0.7879** 🏆| 0.7785 |
+| **BMMC** | Avg-Batch | 0.8999 | 0.8431 | **0.9734** 🏆 |
+| | Avg-Bio | 0.6316 | 0.6576 | **0.8712** 🏆 |
+| **Perirhinal** | Avg-Batch | 0.9442 | **0.9600** 🏆| 0.9542 |
+| | Avg-Bio | 0.8595 | 0.9552 | **0.9895** 🏆 |
+| **COVID-19** | Avg-Batch | 0.8781 | 0.8625 | **0.9538** 🏆 |
+| | Avg-Bio | 0.4468 | 0.6476 | **0.6689** 🏆 |
 
 </div>
 
