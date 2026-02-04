@@ -13,7 +13,7 @@
     </div>
 
     <!-- Line 3 -->
-    <div style="color:#666666; font-weight:600; font-size:44px; line-height:1.35; margin-top:28px;">
+    <div style="color:#666666; font-weight:300; font-size:44px; line-height:1.35; margin-top:28px;">
       Core Competence: Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
     </div>
 
