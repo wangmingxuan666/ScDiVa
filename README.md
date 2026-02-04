@@ -121,8 +121,6 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 
 *Comparison of scDiVa against leading baselines across diverse benchmarks.*
 
-*Comparison of scDiVa against leading baselines across diverse benchmarks.*
-
 ### Avg-Batch
 
 | Dataset | Harmony | Geneformer | scGPT | scFoundation | GeneMamba | **scDiVa** |
