@@ -121,18 +121,27 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 
 *Comparison of scDiVa against leading baselines across diverse benchmarks.*
 
-| Dataset        | Metric     | Harmony | scGPT   | **scDiVa** |
-|:------------- |:----------:|:------:|:------:|:----------:|
-| **PBMC12k**    | Avg-Batch  | 0.9341 | 0.9755 | **0.9960** 🏆 |
-| **PBMC12k**    | Avg-Bio    | 0.7990 | 0.9018 | **0.9566** 🏆 |
-| **Immune**     | Avg-Batch  | 0.9514 | 0.9194 | **0.9555** 🏆 |
-| **Immune**     | Avg-Bio    | 0.6945 | **0.7879** 🏆 | 0.7785 |
-| **BMMC**       | Avg-Batch  | 0.8999 | 0.8431 | **0.9734** 🏆 |
-| **BMMC**       | Avg-Bio    | 0.6316 | 0.6576 | **0.8712** 🏆 |
-| **Perirhinal** | Avg-Batch  | 0.9442 | **0.9600** 🏆 | 0.9542 |
-| **Perirhinal** | Avg-Bio    | 0.8595 | 0.9552 | **0.9895** 🏆 |
-| **COVID-19**   | Avg-Batch  | 0.8781 | 0.8625 | **0.9538** 🏆 |
-| **COVID-19**   | Avg-Bio    | 0.4468 | 0.6476 | **0.6689** 🏆 |
+*Comparison of scDiVa against leading baselines across diverse benchmarks.*
+
+### Avg-Batch
+
+| Dataset | Harmony | Geneformer | scGPT | scFoundation | GeneMamba | **scDiVa** |
+|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Immune** | 0.9514 | 0.8153 | 0.9194 | 0.8904 | 0.9536 | **0.9555** 🏆 |
+| **PBMC12k** | 0.9341 | 0.9545 | 0.9755 | 0.9628 | 0.9604 | **0.9960** 🏆 |
+| **BMMC** | 0.8999 | 0.7720 | 0.8431 | 0.7598 | 0.9157 | **0.9734** 🏆 |
+| **Perirhinal Cortex** | 0.9442 | 0.9127 | 0.9600 | 0.9560 | **0.9673** 🏆 | 0.9542 |
+| **COVID-19** | 0.8781 | 0.8240 | 0.8625 | 0.8346 | 0.8742 | **0.9538** 🏆 |
+
+### Avg-Bio
+
+| Dataset | Harmony | Geneformer | scGPT | scFoundation | GeneMamba | **scDiVa** |
+|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Immune** | 0.6945 | 0.6983 | 0.7879 | 0.7337 | **0.8131** 🏆 | 0.7785 |
+| **PBMC12k** | 0.7990 | 0.7891 | 0.9018 | 0.8662 | 0.8344 | **0.9566** 🏆 |
+| **BMMC** | 0.6316 | 0.6324 | 0.6576 | 0.5250 | 0.7628 | **0.8712** 🏆 |
+| **Perirhinal Cortex** | 0.8595 | 0.8547 | 0.9552 | 0.9606 | 0.9062 | **0.9895** 🏆 |
+| **COVID-19** | 0.4468 | 0.5567 | 0.6476 | 0.5468 | 0.5537 | **0.6689** 🏆 |
 
 
 <div align="center">
