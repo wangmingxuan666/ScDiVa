@@ -117,43 +117,7 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 ScDiVa demonstrates superior batch integration capabilities, balancing technical noise removal (Avg-Batch) with biological conservation (Avg-Bio) across diverse benchmarks:
 
-<p align="center"><em>Comparison of scDiVa against leading baselines across diverse benchmarks.</em></p>
-
-<div style="overflow-x:auto;">
-<table style="margin: 0 auto; border-collapse: collapse;">
-  <thead>
-    <tr>
-      <th>Dataset</th>
-      <th>Metric</th>
-      <th>Harmony</th>
-      <th>scGPT</th>
-      <th><b>scDiVa</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><b>PBMC12k</b></td><td>Avg-Batch</td><td>0.9341</td><td>0.9755</td><td><b>0.9960</b> 🏆</td></tr>
-    <tr><td></td><td>Avg-Bio</td><td>0.7990</td><td>0.9018</td><td><b>0.9566</b> 🏆</td></tr>
-
-    <tr><td><b>Immune</b></td><td>Avg-Batch</td><td>0.9514</td><td>0.9194</td><td><b>0.9555</b> 🏆</td></tr>
-    <tr><td></td><td>Avg-Bio</td><td>0.6945</td><td><b>0.7879</b> 🏆</td><td>0.7785</td></tr>
-
-    <tr><td><b>BMMC</b></td><td>Avg-Batch</td><td>0.8999</td><td>0.8431</td><td><b>0.9734</b> 🏆</td></tr>
-    <tr><td></td><td>Avg-Bio</td><td>0.6316</td><td>0.6576</td><td><b>0.8712</b> 🏆</td></tr>
-
-    <tr><td><b>Perirhinal</b></td><td>Avg-Batch</td><td>0.9442</td><td><b>0.9600</b> 🏆</td><td>0.9542</td></tr>
-    <tr><td></td><td>Avg-Bio</td><td>0.8595</td><td>0.9552</td><td><b>0.9895</b> 🏆</td></tr>
-
-    <tr><td><b>COVID-19</b></td><td>Avg-Batch</td><td>0.8781</td><td>0.8625</td><td><b>0.9538</b> 🏆</td></tr>
-    <tr><td></td><td>Avg-Bio</td><td>0.4468</td><td>0.6476</td><td><b>0.6689</b> 🏆</td></tr>
-  </tbody>
-</table>
-</div>
-
-
-
-<div align="center">
-  <img src="./assets/Multi.png" alt="Batch Integration Results" width="700"/>
-</div>
+<div align="center" markdown="1"> *Comparison of scDiVa against leading baselines across diverse benchmarks.* | Dataset | Metric | Harmony | scGPT | **scDiVa** | | :--- | :---: | :---: | :---: | :---: | | **PBMC12k** | Avg-Batch | 0.9341 | 0.9755 | **0.9960** 🏆 | | | Avg-Bio | 0.7990 | 0.9018 | **0.9566** 🏆 | | **Immune** | Avg-Batch | 0.9514 | 0.9194 | **0.9555** 🏆 | | | Avg-Bio | 0.6945 | **0.7879** 🏆| 0.7785 | | **BMMC** | Avg-Batch | 0.8999 | 0.8431 | **0.9734** 🏆 | | | Avg-Bio | 0.6316 | 0.6576 | **0.8712** 🏆 | | **Perirhinal** | Avg-Batch | 0.9442 | **0.9600** 🏆| 0.9542 | | | Avg-Bio | 0.8595 | 0.9552 | **0.9895** 🏆 | | **COVID-19** | Avg-Batch | 0.8781 | 0.8625 | **0.9538** 🏆 | | | Avg-Bio | 0.4468 | 0.6476 | **0.6689** 🏆 | </div>
 
 ---
 
