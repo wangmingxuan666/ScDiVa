@@ -142,7 +142,7 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 | **BMMC** | 0.6316 | 0.6324 | 0.6576 | 0.5250 | 0.7628 | **0.8712** 🏆 |
 | **Perirhinal Cortex** | 0.8595 | 0.8547 | 0.9552 | 0.9606 | 0.9062 | **0.9895** 🏆 |
 | **COVID-19** | 0.4468 | 0.5567 | 0.6476 | 0.5468 | 0.5537 | **0.6689** 🏆 |
-
+</div>
 
 <div align="center">
   <img src="./assets/Multi.png" alt="Multi-batch integration Results" width="700"/>
