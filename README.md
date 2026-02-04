@@ -145,7 +145,7 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 
 
 <div align="center">
-  <img src="./assets/Anno.png" alt="Cell Annotation Results" width="700"/>
+  <img src="./assets/Multi.png" alt="Multi-batch integration Results" width="700"/>
 </div>
 
 ---
