@@ -1,24 +1,61 @@
-<!-- HERO: strict layout like the screenshot (left aligned, 3 lines, colors) -->
-<div style="background:#ffffff; padding:72px 72px 40px;">
-  <div style="max-width:1400px; margin:0 auto; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;">
+<!-- HERO: flush-left (full-bleed), 3 lines, auto-wrap on line 3 -->
+<div style="
+  background:#ffffff;
+  margin-left:-9999px; margin-right:-9999px;
+  padding-left:9999px; padding-right:9999px;
+  padding-top:72px; padding-bottom:40px;
+">
+  <div style="
+    max-width:1400px;
+    margin:0;               /* <-- no centering */
+    padding:0;              /* <-- no extra indent */
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+    text-align:left;
+  ">
 
     <!-- Line 1 -->
-    <div style="color:#2F55D4; font-weight:800; font-size:75px; line-height:1.05; letter-spacing:-0.02em; margin:0;">
+    <div style="
+      color:#2F55D4;
+      font-weight:800;
+      font-size:75px;
+      line-height:1.05;
+      letter-spacing:-0.02em;
+      margin:0;
+    ">
       ScDiVa
     </div>
 
     <!-- Line 2 -->
-    <div style="color:#333333; font-weight:800; font-size:40px; line-height:1.08; letter-spacing:-0.02em; margin-top:12px;">
+    <div style="
+      color:#333333;
+      font-weight:800;
+      font-size:40px;
+      line-height:1.08;
+      letter-spacing:-0.02em;
+      margin-top:12px;
+    ">
       A Foundation Model for Single-cell Genomics
     </div>
 
-    <!-- Line 3 -->
-    <div style="color:#666666; font-weight:300; font-size:18px; line-height:1.35; margin-top:28px;">
-    Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
+    <!-- Line 3 (force wrapping) -->
+    <div style="
+      color:#666666;
+      font-weight:300;
+      font-size:18px;
+      line-height:1.35;
+      margin-top:28px;
+
+      /* KEY: allow wrapping everywhere it needs */
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    ">
+      Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
     </div>
 
   </div>
 </div>
+
 
 <!-- Image below -->
 <p align="center" style="margin:24px 0 0;">
