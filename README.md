@@ -1,55 +1,16 @@
-<!-- HERO: flush-left (full-bleed), 3 lines, auto-wrap on line 3 -->
-<div style="
-  background:#ffffff;
-  margin-left:-9999px; margin-right:-9999px;
-  padding-left:9999px; padding-right:9999px;
-  padding-top:72px; padding-bottom:40px;
-">
-  <div style="
-    max-width:1400px;
-    margin:0;               /* <-- no centering */
-    padding:0;              /* <-- no extra indent */
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
-    text-align:left;
-  ">
+<!-- HERO: flush-left (full-bleed), 3 lines -->
+<div style="background:#ffffff;margin-left:-9999px;margin-right:-9999px;padding-left:9999px;padding-right:9999px;padding-top:72px;padding-bottom:40px;">
+  <div style="max-width:1400px;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;text-align:left;">
 
-    <!-- Line 1 -->
-    <div style="
-      color:#2F55D4;
-      font-weight:800;
-      font-size:75px;
-      line-height:1.05;
-      letter-spacing:-0.02em;
-      margin:0;
-    ">
+    <div style="color:#2F55D4;font-weight:800;font-size:75px;line-height:1.05;letter-spacing:-0.02em;margin:0;">
       ScDiVa
     </div>
 
-    <!-- Line 2 -->
-    <div style="
-      color:#333333;
-      font-weight:800;
-      font-size:40px;
-      line-height:1.08;
-      letter-spacing:-0.02em;
-      margin-top:12px;
-    ">
+    <div style="color:#333333;font-weight:800;font-size:40px;line-height:1.08;letter-spacing:-0.02em;margin-top:12px;">
       A Foundation Model for Single-cell Genomics
     </div>
 
-    <!-- Line 3 (force wrapping) -->
-    <div style="
-      color:#666666;
-      font-weight:300;
-      font-size:18px;
-      line-height:1.35;
-      margin-top:28px;
-
-      /* KEY: allow wrapping everywhere it needs */
-      white-space:normal;
-      overflow-wrap:anywhere;
-      word-break:break-word;
-    ">
+    <div style="color:#666666;font-weight:300;font-size:18px;line-height:1.35;margin-top:28px;white-space:normal;overflow-wrap:anywhere;word-break:break-word;">
       Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
     </div>
 
@@ -112,6 +73,47 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 ---
 
 ## 📊 Main Results
+
+### 🧩 Rank-Value Joint Reconstruction
+
+We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and **Spearman** (↑) across multiple datasets.
+
+#### PBMC12k
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|:--|--:|--:|--:|
+| GeneMamba U | 430 | 0.532 | 0.469 |
+| Geneformer | 23 | 0.968 | 0.703 |
+| GeneMamba | 6 | **0.987** 🏆 | 0.711 |
+| **scDiVa** | **5** 🏆 | **0.987** 🏆 | **0.812** 🏆 |
+
+#### Pancreas
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|:--|--:|--:|--:|
+| GeneMamba U | 370 | 0.524 | 0.461 |
+| Geneformer | 25 | 0.956 | 0.763 |
+| GeneMamba | **12** 🏆 | **0.991** 🏆 | 0.792 |
+| **scDiVa** | 13 | 0.965 | **0.812** 🏆 |
+
+#### Zheng68k
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|:--|--:|--:|--:|
+| GeneMamba U | 432 | 0.581 | 0.503 |
+| Geneformer | 25 | 0.937 | 0.901 |
+| GeneMamba | 11 | **0.996** 🏆 | 0.980 |
+| **scDiVa** | **9** 🏆 | 0.992 | **0.994** 🏆 |
+
+#### Immune
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|:--|--:|--:|--:|
+| GeneMamba U | 468 | 0.659 | 0.442 |
+| Geneformer | 17 | 0.962 | 0.823 |
+| GeneMamba | 12 | **0.998** 🏆 | 0.844 |
+| **scDiVa** | **4** 🏆 | 0.997 | **0.970** 🏆 |
+
 
 ### 🔬 Multi-Batch Integration
 
