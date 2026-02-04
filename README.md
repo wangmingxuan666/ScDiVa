@@ -121,8 +121,19 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 
 *Comparison of scDiVa against leading baselines across diverse benchmarks.*
 
-| Dataset | Metric | Harmony | scGPT | **scDiVa** | | :--- | :---: | :---: | :---: | :---: | | **PBMC12k** | Avg-Batch | 0.9341 | 0.9755 | **0.9960** 🏆 | | | Avg-Bio | 0.7990 | 0.9018 | **0.9566** 🏆 | | **Immune** | Avg-Batch | 0.9514 | 0.9194 | **0.9555** 🏆 | | | Avg-Bio | 0.6945 | **0.7879** 🏆| 0.7785 | | **BMMC** | Avg-Batch | 0.8999 | 0.8431 | **0.9734** 🏆 | | | Avg-Bio | 0.6316 | 0.6576 | **0.8712** 🏆 | | **Perirhinal** | Avg-Batch | 0.9442 | **0.9600** 🏆| 0.9542 | | | Avg-Bio | 0.8595 | 0.9552 | **0.9895** 🏆 | | **COVID-19** | Avg-Batch | 0.8781 | 0.8625 | **0.9538** 🏆 | | | Avg-Bio | 0.4468 | 0.6476 | **0.6689** 🏆 |
-</div>
+| Dataset        | Metric     | Harmony | scGPT   | **scDiVa** |
+|:------------- |:----------:|:------:|:------:|:----------:|
+| **PBMC12k**    | Avg-Batch  | 0.9341 | 0.9755 | **0.9960** 🏆 |
+| **PBMC12k**    | Avg-Bio    | 0.7990 | 0.9018 | **0.9566** 🏆 |
+| **Immune**     | Avg-Batch  | 0.9514 | 0.9194 | **0.9555** 🏆 |
+| **Immune**     | Avg-Bio    | 0.6945 | **0.7879** 🏆 | 0.7785 |
+| **BMMC**       | Avg-Batch  | 0.8999 | 0.8431 | **0.9734** 🏆 |
+| **BMMC**       | Avg-Bio    | 0.6316 | 0.6576 | **0.8712** 🏆 |
+| **Perirhinal** | Avg-Batch  | 0.9442 | **0.9600** 🏆 | 0.9542 |
+| **Perirhinal** | Avg-Bio    | 0.8595 | 0.9552 | **0.9895** 🏆 |
+| **COVID-19**   | Avg-Batch  | 0.8781 | 0.8625 | **0.9538** 🏆 |
+| **COVID-19**   | Avg-Bio    | 0.4468 | 0.6476 | **0.6689** 🏆 |
+
 
 <div align="center">
   <img src="./assets/Anno.png" alt="Cell Annotation Results" width="700"/>
