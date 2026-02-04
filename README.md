@@ -8,12 +8,12 @@
     </div>
 
     <!-- Line 2 -->
-    <div style="color:#333333; font-weight:800; font-size:50px; line-height:1.08; letter-spacing:-0.02em; margin-top:12px;">
+    <div style="color:#333333; font-weight:800; font-size:40px; line-height:1.08; letter-spacing:-0.02em; margin-top:12px;">
       A Foundation Model for Single-cell Genomics
     </div>
 
     <!-- Line 3 -->
-    <div style="color:#666666; font-weight:300; font-size:20px; line-height:1.35; margin-top:28px;">
+    <div style="color:#666666; font-weight:300; font-size:10px; line-height:1.35; margin-top:28px;">
       Core Competence: Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
     </div>
 
