@@ -25,7 +25,7 @@
 
 - **[2026.02.03]** 🎉 ScDiVa pre-trained and fine-tuned weights are now available on [Hugging Face](https://huggingface.co/warming666/ScDiVa)!
 - **[2026.02.03]** 📄 ScDiVa paper is released on arXiv.
-- **[2026.01.15]** 🚀 ScDiVa project initialization.
+- **[2026.10.17]** 🚀 ScDiVa project initialization.
 
 ---
 
