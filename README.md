@@ -73,65 +73,169 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and **Spearman** (↑) across multiple datasets.
 
-<div align="left" markdown="1">
-
-<table width="100%">
+<table>
   <tr>
-    <td width="50%" valign="top" markdown="1">
-
-#### PBMC12k
-
-| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
-|:--|--:|--:|--:|
-| GeneMamba U | 430 | 0.532 | 0.469 |
-| Geneformer | 23 | 0.968 | 0.703 |
-| GeneMamba | 6 | **0.987** 🏆 | 0.711 |
-| **scDiVa** | **5** 🏆 | **0.987** 🏆 | **0.812** 🏆 |
-
+    <td width="50%" valign="top">
+      <h4>PBMC12k</h4>
+      <table width="100%">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th align="right">L-Dist ↓</th>
+            <th align="right">BLEU ↑</th>
+            <th align="right">Spearman ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GeneMamba U</td>
+            <td align="right">430</td>
+            <td align="right">0.532</td>
+            <td align="right">0.469</td>
+          </tr>
+          <tr>
+            <td>Geneformer</td>
+            <td align="right">23</td>
+            <td align="right">0.968</td>
+            <td align="right">0.703</td>
+          </tr>
+          <tr>
+            <td>GeneMamba</td>
+            <td align="right">6</td>
+            <td align="right"><b>0.987</b> 🏆</td>
+            <td align="right">0.711</td>
+          </tr>
+          <tr>
+            <td><b>scDiVa</b></td>
+            <td align="right"><b>5</b> 🏆</td>
+            <td align="right"><b>0.987</b> 🏆</td>
+            <td align="right"><b>0.812</b> 🏆</td>
+          </tr>
+        </tbody>
+      </table>
     </td>
-    <td width="50%" valign="top" markdown="1">
-
-#### Pancreas
-
-| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
-|:--|--:|--:|--:|
-| GeneMamba U | 370 | 0.524 | 0.461 |
-| Geneformer | 25 | 0.956 | 0.763 |
-| GeneMamba | **12** 🏆 | **0.991** 🏆 | 0.792 |
-| **scDiVa** | 13 | 0.965 | **0.812** 🏆 |
-
+    <td width="50%" valign="top">
+      <h4>Pancreas</h4>
+      <table width="100%">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th align="right">L-Dist ↓</th>
+            <th align="right">BLEU ↑</th>
+            <th align="right">Spearman ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GeneMamba U</td>
+            <td align="right">370</td>
+            <td align="right">0.524</td>
+            <td align="right">0.461</td>
+          </tr>
+          <tr>
+            <td>Geneformer</td>
+            <td align="right">25</td>
+            <td align="right">0.956</td>
+            <td align="right">0.763</td>
+          </tr>
+          <tr>
+            <td>GeneMamba</td>
+            <td align="right"><b>12</b> 🏆</td>
+            <td align="right"><b>0.991</b> 🏆</td>
+            <td align="right">0.792</td>
+          </tr>
+          <tr>
+            <td><b>scDiVa</b></td>
+            <td align="right">13</td>
+            <td align="right">0.965</td>
+            <td align="right"><b>0.812</b> 🏆</td>
+          </tr>
+        </tbody>
+      </table>
     </td>
   </tr>
-
+  
   <tr>
-    <td width="50%" valign="top" markdown="1">
-
-#### Zheng68k
-
-| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
-|:--|--:|--:|--:|
-| GeneMamba U | 432 | 0.581 | 0.503 |
-| Geneformer | 25 | 0.937 | 0.901 |
-| GeneMamba | 11 | **0.996** 🏆 | 0.980 |
-| **scDiVa** | **9** 🏆 | 0.992 | **0.994** 🏆 |
-
+    <td width="50%" valign="top">
+      <h4>Zheng68k</h4>
+      <table width="100%">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th align="right">L-Dist ↓</th>
+            <th align="right">BLEU ↑</th>
+            <th align="right">Spearman ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GeneMamba U</td>
+            <td align="right">432</td>
+            <td align="right">0.581</td>
+            <td align="right">0.503</td>
+          </tr>
+          <tr>
+            <td>Geneformer</td>
+            <td align="right">25</td>
+            <td align="right">0.937</td>
+            <td align="right">0.901</td>
+          </tr>
+          <tr>
+            <td>GeneMamba</td>
+            <td align="right">11</td>
+            <td align="right"><b>0.996</b> 🏆</td>
+            <td align="right">0.980</td>
+          </tr>
+          <tr>
+            <td><b>scDiVa</b></td>
+            <td align="right"><b>9</b> 🏆</td>
+            <td align="right">0.992</td>
+            <td align="right"><b>0.994</b> 🏆</td>
+          </tr>
+        </tbody>
+      </table>
     </td>
-    <td width="50%" valign="top" markdown="1">
-
-#### Immune
-
-| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
-|:--|--:|--:|--:|
-| GeneMamba U | 468 | 0.659 | 0.442 |
-| Geneformer | 17 | 0.962 | 0.823 |
-| GeneMamba | 12 | **0.998** 🏆 | 0.844 |
-| **scDiVa** | **4** 🏆 | 0.997 | **0.970** 🏆 |
-
+    <td width="50%" valign="top">
+      <h4>Immune</h4>
+      <table width="100%">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th align="right">L-Dist ↓</th>
+            <th align="right">BLEU ↑</th>
+            <th align="right">Spearman ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GeneMamba U</td>
+            <td align="right">468</td>
+            <td align="right">0.659</td>
+            <td align="right">0.442</td>
+          </tr>
+          <tr>
+            <td>Geneformer</td>
+            <td align="right">17</td>
+            <td align="right">0.962</td>
+            <td align="right">0.823</td>
+          </tr>
+          <tr>
+            <td>GeneMamba</td>
+            <td align="right">12</td>
+            <td align="right"><b>0.998</b> 🏆</td>
+            <td align="right">0.844</td>
+          </tr>
+          <tr>
+            <td><b>scDiVa</b></td>
+            <td align="right"><b>4</b> 🏆</td>
+            <td align="right">0.997</td>
+            <td align="right"><b>0.970</b> 🏆</td>
+          </tr>
+        </tbody>
+      </table>
     </td>
   </tr>
 </table>
-
-</div>
 
 ### 🔬 Multi-Batch Integration
 
