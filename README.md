@@ -292,7 +292,7 @@ ScDiVa achieves high accuracy in both fine-tuning (for specific tissues) and zer
 </div>
 
 <div align="center">
-  <img src="./assets/Anno.png" alt="Cell Annotation Results" width="700"/>
+  <img src="./assets/Anno.png" alt="Cell Annotation Results" width="900"/>
 </div>
 
 ---
