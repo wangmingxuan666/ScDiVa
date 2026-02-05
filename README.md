@@ -1,26 +1,23 @@
-<div align="left" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;">
 
-  <div style="color:#2F55D4;font-weight:800;font-size:72px;line-height:1.05;letter-spacing:-0.02em;margin:0;">
-    ScDiVa
-  </div>
+<div align="center">
 
-  <div style="color:#333333;font-weight:800;font-size:40px;line-height:1.10;letter-spacing:-0.02em;margin-top:12px;">
-    A Foundation Model for Single-cell Genomics
-  </div>
+# ScDiVa: A Foundation Model for Single-cell Genomics
 
-  <div style="color:#666666;font-weight:300;font-size:18px;line-height:1.35;margin-top:18px;white-space:normal;overflow-wrap:anywhere;word-break:break-word;">
-    Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
-  </div>
-
-  </div>
-</div>
-
-
-<!-- Image below -->
-<p align="center" style="margin:24px 0 0;">
+<p align="center">
   <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="1200"/>
 </p>
 
+**Core Competence**: Reconstruction | Multi-Batch Integration | Cell Annotation | Gene Perturbation Prediction | Gene Correlation Analysis
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2602.03477-b31b1b.svg)](https://arxiv.org/abs/2602.03477)
+[![Model](https://img.shields.io/badge/Model-ScDiVa-green.svg)](https://huggingface.co/warming666/ScDiVa)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Models-yellow)](https://huggingface.co/warming666/ScDiVa)
+
+[📖 Paper](https://arxiv.org/abs/2602.03477) | [🤗 HuggingFace](https://huggingface.co/warming666/ScDiVa) | [📊 Demo](https://demo.scdiva.ai)
+
+</div>
 
 ---
 
