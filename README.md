@@ -267,7 +267,7 @@ ScDiVa demonstrates superior batch integration capabilities, balancing technical
 </div>
 
 <div align="center">
-  <img src="./assets/Multi.png" alt="Multi-batch integration Results" width="700"/>
+  <img src="./assets/Multi.png" alt="Multi-batch integration Results" width="900"/>
 </div>
 
 ---
@@ -302,7 +302,7 @@ ScDiVa achieves high accuracy in both fine-tuning (for specific tissues) and zer
 ScDiVa extends its capabilities to complex causal inference and interpretability tasks. By fine-tuning on perturbation datasets, the model effectively bridges the causal gap to predict transcriptional responses to both single and combinatorial genetic interventions. Furthermore, ScDiVa's intrinsic attention mechanisms allow for the direct extraction of interpretable global Gene Regulatory Networks (GRN).
 
 <div align="center">
-  <img src="./assets/0.png" alt="Perturbation and Evaluation" width="700"/>
+  <img src="./assets/0.png" alt="Perturbation and Evaluation" width="900"/>
 </div>
 
 - **Rank-Value Reconstruction**: Achieves record Spearman correlations on Immune (**0.970**) and PBMC12k (**0.812**) datasets.
