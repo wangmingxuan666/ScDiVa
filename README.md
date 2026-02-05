@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# ScDiVa: A Foundation Model for Single-cell Genomics
+# ScDiVa: Masked Discrete Diffusion for Joint Modeling of Single-Cell Identity and Expression
 
 <p align="center">
   <img src="./assets/scDiVa.png" alt="ScDiVa Architecture" width="1200"/>
