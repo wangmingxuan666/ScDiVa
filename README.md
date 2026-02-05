@@ -73,7 +73,11 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and **Spearman** (↑) across multiple datasets.
 
-<div align="center" markdown="1">
+<div align="left" markdown="1">
+
+<table width="100%">
+  <tr>
+    <td width="50%" valign="top" markdown="1">
 
 #### PBMC12k
 
@@ -84,6 +88,9 @@ We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and *
 | GeneMamba | 6 | **0.987** 🏆 | 0.711 |
 | **scDiVa** | **5** 🏆 | **0.987** 🏆 | **0.812** 🏆 |
 
+    </td>
+    <td width="50%" valign="top" markdown="1">
+
 #### Pancreas
 
 | Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
@@ -92,6 +99,12 @@ We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and *
 | Geneformer | 25 | 0.956 | 0.763 |
 | GeneMamba | **12** 🏆 | **0.991** 🏆 | 0.792 |
 | **scDiVa** | 13 | 0.965 | **0.812** 🏆 |
+
+    </td>
+  </tr>
+
+  <tr>
+    <td width="50%" valign="top" markdown="1">
 
 #### Zheng68k
 
@@ -102,6 +115,9 @@ We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and *
 | GeneMamba | 11 | **0.996** 🏆 | 0.980 |
 | **scDiVa** | **9** 🏆 | 0.992 | **0.994** 🏆 |
 
+    </td>
+    <td width="50%" valign="top" markdown="1">
+
 #### Immune
 
 | Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
@@ -110,6 +126,11 @@ We evaluate reconstruction quality using **L-Dist** (↓), **BLEU** (↑), and *
 | Geneformer | 17 | 0.962 | 0.823 |
 | GeneMamba | 12 | **0.998** 🏆 | 0.844 |
 | **scDiVa** | **4** 🏆 | 0.997 | **0.970** 🏆 |
+
+    </td>
+  </tr>
+</table>
+
 </div>
 
 ### 🔬 Multi-Batch Integration
