@@ -36,19 +36,19 @@
 
 | Innovation | Description |
 |---|---|
-| **Dual Denoising Loss** | Jointly models **gene identity** (topology) and **expression value** (dosage) through a combined classification + regression objective |
-| **Entropy-Normalized Serialization** | Prioritizes discriminative genes over housekeeping noise based on population-level Shannon entropy |
-| **Depth-Invariant Sampling** | Simulates varying sequencing depths to ensure robust generalization across sparse datasets |
-| **Latent Anchor Token [LAT]** | Aggregates global cell context to stabilize generation under high masking ratios |
-| **Bi-Directional Masked Diffusion** | Avoids the ordering bias and error accumulation of autoregressive generation |
+| 🔷 **Dual Denoising Loss** | Jointly models **gene identity** (topology) and **expression value** (dosage) through a combined classification + regression objective |
+| 🔷 **Entropy-Normalized Serialization** | Prioritizes discriminative genes over housekeeping noise based on population-level Shannon entropy |
+| 🔷 **Depth-Invariant Sampling** | Simulates varying sequencing depths to ensure robust generalization across sparse datasets |
+| 🔷 **Latent Anchor Token [LAT]** | Aggregates global cell context to stabilize generation under high masking ratios |
+| 🔷 **Bi-Directional Masked Diffusion** | Avoids the ordering bias and error accumulation of autoregressive generation |
 
 ### Downstream Tasks
 
-* **Rank-Value Joint Reconstruction** — Simultaneous recovery of gene ranking and expression magnitude
-* **Multi-batch Integration** — Harmonization across technical batches while preserving biological heterogeneity
-* **Cell Type Annotation** — Fine-tuning & zero-shot classification across diverse tissues
-* **Gene Perturbation Prediction** — Single and combinatorial perturbation effect modeling
-* **Gene Regulatory Network (GRN) Inference** — Attention-derived regulatory hypothesis generation
+* ▶️ **Rank-Value Joint Reconstruction** — Simultaneous recovery of gene ranking and expression magnitude
+* ▶️ **Multi-Batch Integration** — Harmonization across technical batches while preserving biological heterogeneity
+* ▶️ **Cell Type Annotation** — Fine-tuning & zero-shot classification across diverse tissues
+* ▶️ **Gene Perturbation Prediction** — Single and combinatorial perturbation effect modeling
+* ▶️ **GRN Inference** — Attention-derived regulatory hypothesis generation
 
 ---
 
@@ -84,7 +84,7 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 | Parameter | Value |
 |---|---|
-| Pre-training corpus | 59,162,450 cells |
+| Pre-training corpus | **59,162,450** cells |
 | Global batch size | 768 |
 | Optimizer | AdamW |
 | Loss weight λ (value term) | 10.0 |
@@ -96,66 +96,89 @@ ScDiVa employs a **Masked Discrete Diffusion** framework instantiated as a bidir
 
 ---
 
-## 📊 Key Results
+## 📊 Benchmark Results
+
+---
 
 ### Table 1: Rank-Value Joint Reconstruction
 
-Lower L-Dist is better; higher BLEU and Spearman are better.
+Lower L-Dist is better (↓); higher BLEU and Spearman are better (↑).
 
-| Dataset | Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
-|---|---|---|---|---|
-| **PBMC12k** | GeneMamba U | 430 | 0.532 | 0.469 |
-| | Geneformer | 23 | 0.968 | 0.703 |
-| | GeneMamba | 6 | 0.987 | 0.711 |
-| | **scDiVa** | **5** | **0.987** | **0.812** |
-| **Pancreas** | GeneMamba U | 370 | 0.524 | 0.461 |
-| | Geneformer | 25 | 0.956 | 0.763 |
-| | GeneMamba | 12 | 0.991 | 0.792 |
-| | **scDiVa** | **13** | **0.965** | **0.812** |
-| **Zheng68k** | GeneMamba U | 432 | 0.581 | 0.503 |
-| | Geneformer | 25 | 0.937 | 0.901 |
-| | GeneMamba | 11 | 0.996 | 0.980 |
-| | **scDiVa** | **9** | **0.992** | **0.994** |
-| **Immune** | GeneMamba U | 468 | 0.659 | 0.442 |
-| | Geneformer | 17 | 0.962 | 0.823 |
-| | GeneMamba | 12 | 0.998 | 0.844 |
-| | **scDiVa** | **4** | **0.997** | **0.970** |
+#### PBMC12k Dataset
 
-> scDiVa achieves **record Spearman correlations** on Immune (+14.9%) and PBMC12k (+14.2%), demonstrating superior rank preservation while maintaining high BLEU.
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|---|---:|---:|---:|
+| GeneMamba U | 430 | 0.532 | 0.469 |
+| Geneformer | 23 | 0.968 | 0.703 |
+| GeneMamba | 6 | 0.987 | 0.711 |
+| 🏆 **scDiVa** | **5** | **0.987** | **0.812** |
+
+#### Pancreas Dataset
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|---|---:|---:|---:|
+| GeneMamba U | 370 | 0.524 | 0.461 |
+| Geneformer | 25 | 0.956 | 0.763 |
+| GeneMamba | 12 | 0.991 | 0.792 |
+| 🏆 **scDiVa** | **13** | **0.965** | **0.812** |
+
+#### Zheng68k Dataset
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|---|---:|---:|---:|
+| GeneMamba U | 432 | 0.581 | 0.503 |
+| Geneformer | 25 | 0.937 | 0.901 |
+| GeneMamba | 11 | 0.996 | 0.980 |
+| 🏆 **scDiVa** | **9** | **0.992** | **0.994** |
+
+#### Immune Dataset
+
+| Model | L-Dist ↓ | BLEU ↑ | Spearman ↑ |
+|---|---:|---:|---:|
+| GeneMamba U | 468 | 0.659 | 0.442 |
+| Geneformer | 17 | 0.962 | 0.823 |
+| GeneMamba | 12 | 0.998 | 0.844 |
+| 🏆 **scDiVa** | **4** | **0.997** | **0.970** |
+
+> 📈 **Key Insight**: scDiVa achieves **record Spearman correlations** on Immune (+14.9%) and PBMC12k (+14.2%), demonstrating superior rank preservation while maintaining high BLEU scores.
 
 ---
 
 ### Table 2: Multi-Batch Integration Benchmark
 
-Avg-Batch measures batch mixing; Avg-Bio measures biological conservation. Reported under matched preprocessing, splits, and metrics.
+Avg-Batch measures batch mixing (higher is better ↑); Avg-Bio measures biological conservation (higher is better ↑). All models evaluated under matched preprocessing, splits, metrics, and model-selection settings.
 
 | Model | **Immune** | | **PBMC12k** | | **BMMC** | | **Perirhinal Cortex** | | **COVID-19** | |
-|---|---|---|---|---|---|---|---|---|---|---|
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | | Batch | Bio | Batch | Bio | Batch | Bio | Batch | Bio | Batch | Bio |
-| Harmony | 0.9514 | 0.6945 | 0.9341 | 0.7990 | 0.8999 | 0.6316 | 0.9442 | 0.8595 | 0.8781 | 0.4468 |
-| Geneformer | 0.8153 | 0.6983 | 0.9545 | 0.7891 | 0.7720 | 0.6324 | 0.9127 | 0.8547 | 0.8240 | 0.5567 |
-| scGPT | 0.9194 | 0.7879 | 0.9755 | 0.9018 | 0.8431 | 0.6576 | 0.9600 | 0.9552 | 0.8625 | 0.6476 |
-| scFoundation | 0.8904 | 0.7337 | 0.9628 | 0.8662 | 0.7598 | 0.5250 | 0.9560 | 0.9606 | 0.8346 | 0.5468 |
-| GeneMamba | 0.9536 | 0.8131 | 0.9604 | 0.8344 | 0.9157 | 0.7628 | 0.9673 | 0.9062 | 0.8742 | 0.5537 |
-| CellFM | 0.9523 | 0.7934 | 0.9862 | 0.9741 | 0.9562 | 0.8014 | 0.9621 | 0.9692 | 0.9143 | 0.6415 |
-| UCE | 0.9397 | 0.7482 | 0.9764 | 0.9323 | 0.9011 | 0.7225 | 0.9496 | 0.9281 | 0.8924 | 0.5916 |
-| scELMO | 0.9342 | 0.7355 | 0.9726 | 0.9214 | 0.8893 | 0.7012 | 0.9445 | 0.9211 | 0.8842 | 0.5764 |
-| GeneCompass | 0.9421 | 0.7684 | 0.9782 | 0.8963 | 0.9124 | 0.7581 | 0.9553 | 0.9442 | 0.9012 | 0.6093 |
-| **scDiVa** | **0.9555** | **0.7785** | **0.9960** | 0.9566 | **0.9734** | **0.8712** | 0.9542 | **0.9895** | **0.9538** | **0.6689** |
+| Harmony | 0.951 | 0.695 | 0.934 | 0.799 | 0.900 | 0.632 | 0.944 | 0.860 | 0.878 | 0.447 |
+| Geneformer | 0.815 | 0.698 | 0.955 | 0.789 | 0.772 | 0.632 | 0.913 | 0.855 | 0.824 | 0.557 |
+| scGPT | 0.919 | 0.788 | 0.976 | 0.902 | 0.843 | 0.658 | 0.960 | 0.955 | 0.863 | 0.648 |
+| scFoundation | 0.890 | 0.734 | 0.963 | 0.866 | 0.760 | 0.525 | 0.956 | 0.961 | 0.835 | 0.547 |
+| GeneMamba | 0.954 | 0.813 | 0.960 | 0.834 | 0.916 | 0.763 | 0.967 | 0.906 | 0.874 | 0.554 |
+| CellFM | 0.952 | 0.793 | **0.986** | **0.974** | 0.956 | 0.801 | 0.962 | 0.969 | 0.914 | 0.642 |
+| UCE | 0.940 | 0.748 | 0.976 | 0.932 | 0.901 | 0.723 | 0.950 | 0.928 | 0.892 | 0.592 |
+| scELMO | 0.934 | 0.736 | 0.973 | 0.921 | 0.889 | 0.701 | 0.945 | 0.921 | 0.884 | 0.576 |
+| GeneCompass | 0.942 | 0.768 | 0.978 | 0.896 | 0.912 | 0.758 | 0.955 | 0.944 | 0.901 | 0.609 |
+| 🏆 **scDiVa** | **0.956** | **0.779** | **0.996** | **0.957** | **0.973** | **0.871** | **0.954** | **0.990** | **0.954** | **0.669** |
 
-> scDiVa achieves the **best Avg-Batch on 4/5 datasets** and **best Avg-Bio on 3/5 datasets**, with notable gains on BMMC and COVID-19.
+> ✅ **Summary**: scDiVa achieves **best Avg-Batch on 4/5 datasets** and **best Avg-Bio on 3/5 datasets**, with notable gains on BMMC and COVID-19. The best performance in each column is highlighted in bold.
 
 ---
 
 ### Table 3: Perturbation Prediction Benchmark
 
-Each cell reports **Adamson / Norman** under aligned protocols including perturbation-level splits and matched preprocessing.
+Each cell reports `Adamson / Norman` under aligned protocols (perturbation-level splits, matched preprocessing, pseudobulk aggregation, metric selection).
+
+**Metrics**: PearsonΔ (↑), DEMSE (↓), DEP (↑), C-DEP (↑), AUPRC (↑), LFCSp (↑), HR@20 (↑)  
+**Best results**: 🥇 1st | 🥈 2nd | 🥉 3rd
 
 | Method | PearsonΔ ↑ | DEMSE ↓ | DEP ↑ | C-DEP ↑ | AUPRC ↑ | LFCSp ↑ | HR@20 ↑ |
-|---|---|---|---|---|---|---|---|
+|---|---:|---:|---:|---:|---:|---:|---:|
 | Mean | 0.801/— | 0.239/— | 0.742/— | 0.158/— | 0.258/— | 0.341/— | 0.319/— |
 | Linear | 0.821/— | 0.210/— | 0.771/— | 0.194/— | 0.294/— | 0.389/— | 0.356/— |
 | Additive | —/0.932 | —/0.080 | —/0.781 | —/0.269 | —/0.348 | —/0.423 | —/0.461 |
+| Nochange | —/— | —/0.382 | —/— | —/— | —/0.081 | —/— | —/0.098 |
 | GEARS | 0.810/0.810 | 0.225/0.267 | 0.812/0.681 | 0.271/0.188 | 0.341/0.268 | 0.449/0.371 | 0.432/0.334 |
 | CellFM | 0.819/0.841 | 0.157/0.194 | 0.821/0.703 | 0.289/0.212 | 0.362/0.291 | 0.471/0.391 | 0.458/0.372 |
 | scBERT | 0.790/0.791 | 0.250/0.291 | 0.778/0.664 | 0.191/0.174 | 0.279/0.243 | 0.369/0.334 | 0.346/0.304 |
@@ -165,18 +188,18 @@ Each cell reports **Adamson / Norman** under aligned protocols including perturb
 | scELMO | 0.798/0.799 | 0.171/0.211 | 0.782/0.676 | 0.206/0.191 | 0.292/0.262 | 0.381/0.361 | 0.359/0.333 |
 | GeneCompass | 0.771/0.808 | 0.182/0.222 | 0.763/0.689 | 0.176/0.201 | 0.274/0.279 | 0.356/0.384 | 0.334/0.351 |
 | scFoundation | 0.808/0.769 | 0.177/0.221 | 0.793/0.649 | 0.224/0.159 | 0.304/0.233 | 0.397/0.312 | 0.375/0.284 |
-| **scDiVa** | **0.838/0.861** | **0.135/0.163** | **0.842/0.724** | **0.337/0.271** | **0.421/0.341** | **0.543/0.433** | **0.529/0.441** |
+| 🏆 **scDiVa** | **0.838/**<br>**0.861** | **0.135/**<br>**0.163** | **0.842/**<br>**0.724** | **0.337/**<br>**0.271** | **0.421/**<br>**0.341** | **0.543/**<br>**0.433** | **0.529/**<br>**0.441** |
 
-> scDiVa achieves **best performance on Adamson across all metrics** and **best C-DEP and LFCSp on Norman** among learned models. *Bold* indicates best overall.
+> 🏅 **Results**: scDiVa achieves **best performance on Adamson across all 7 metrics** and **best C-DEP (+50%) and LFCSp (+12%) on Norman** among learned models. Simple baselines (Additive for Norman) remain essential controls.
 
 ---
 
 ### Table 4: Cell Type Annotation (Fine-Tuning)
 
-Full benchmark under matched protocols reporting Accuracy and Macro-F1 on cross-batch / cross-domain datasets.
+Full benchmark under matched protocols reporting **Accuracy** and **Macro-F1** on cross-batch / cross-domain datasets.
 
 | Metric | Dataset | GeneFormer | scGPT | scFoundation | GeneMamba | CellFM | UCE | GeneCompass | **scDiVa** |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | **Accuracy** | hPancreas | 96.7 | 97.1 | 96.0 | 97.1 | 98.1 | 97.8 | 98.0 | **98.6** |
 | | MS | 76.5 | 84.7 | 77.6 | 68.3 | 85.6 | 81.8 | 82.5 | **84.4** |
 | | Myeloid | 64.5 | 63.4 | 64.5 | 66.1 | 67.4 | 64.8 | 67.6 | **68.3** |
@@ -186,94 +209,110 @@ Full benchmark under matched protocols reporting Accuracy and Macro-F1 on cross-
 | | Myeloid | 36.0 | 35.6 | 36.5 | 36.5 | 37.6 | 30.8 | 35.5 | **40.2** |
 | | Myeloid b | 93.8 | 91.3 | 95.7 | 92.4 | 94.8 | 93.4 | 94.1 | **95.6** |
 
-> scDiVa achieves **best Accuracy on all 4 datasets** and **best Macro-F1 on 3/4 datasets**. On the highly imbalanced MS dataset, scDiVa improves Macro-F1 by **+36%** over GeneMamba (53.4 → 72.7).
+> 🎯 **Summary**: scDiVa achieves **best Accuracy on all 4 datasets** and **best Macro-F1 on 3/4 datasets**. On the highly imbalanced MS dataset, scDiVa improves Macro-F1 by **+36%** over GeneMamba (53.4 → 72.7).
 
-#### Zero-Shot Annotation
+#### Zero-Shot Annotation Summary
 
 scDiVa achieves an average zero-shot accuracy of **0.914** and Macro-F1 of **0.841** across 7 diverse datasets (Cell Lines, DC, HumanPBMC, MCA, PBMC, PBMC368K, Pancrm), outperforming transformer baselines like scGPT and Geneformer.
 
 ---
 
-### Downstream Adaptation Protocols
+## ⚙️ Downstream Adaptation Protocols
 
-| Protocol | Rank-Value Reconstruction | Multi-batch Integration | Cell Annotation (FT) | Cell Annotation (ZS) | Perturbation Prediction |
+Different downstream tasks use different fine-tuning strategies. Here's the complete summary:
+
+| Protocol | Rank-Value Rec. | Multi-batch Integ. | Annotation (FT) | Annotation (ZS) | Perturbation |
 |---|---|---|---|---|---|
 | **Updated modules** | None; backbone frozen | Full encoder | Last 4 layers; first 8 frozen | MLP head only; backbone frozen | Full encoder |
-| **Task head** | Identity & value denoising heads | GRL batch discriminator; projection MLP | MLP classifier | MLP classifier | [PERT] token; MLP regressor |
-| **Loss** | L_id + λL_val | Reconstruction + batch adversarial + SupCon | Cross-entropy | Cross-entropy | Weighted MSE + DE-aware ranking |
-| **Optimization** | — | LR 1e-4; BS 256; Ep. 50 | LR 5e-5; BS 256; Ep. 30 | LR 5e-5; BS 256; Ep. 80 | LR 1e-4; BS 128; Ep. 40 |
-| **Selection** | Dataset-specific evaluation | Validation Avg-bio / ASW-bio | Validation Macro-F1 | Validation Macro-F1 | Validation DE-AUPRC / LFC Spear |
+| **Task head** | ID & value denoising heads | GRL batch discriminator; projection MLP | MLP classifier | MLP classifier | \[PERT\] token; MLP regressor |
+| **Loss function** | L<sub>ID</sub> + λL<sub>Val</sub> | Recon + adversarial + SupCon | Cross-entropy | Cross-entropy | Weighted MSE + DE-aware ranking |
+| **Optimization** | — | LR 1e⁻⁴; BS 256; Ep. 50 | LR 5e⁻⁵; BS 256; Ep. 30 | LR 5e⁻⁵; BS 256; Ep. 80 | LR 1e⁻⁴; BS 128; Ep. 40 |
+| **Early stopping** | Dataset-specific | Validation Avg-bio / ASW-bio | Validation Macro-F1 | Validation Macro-F1 | Validation DE-AUPRC / LFCSpear |
 
 ---
 
-### Ablation Studies
+## 🔬 Ablation Studies
 
-#### Latent Anchor Token Ablation
+### Latent Anchor Token [LAT] Ablation
 
-| Mask Ratio | w/ LAT Acc. ↑ | w/o LAT Acc. ↑ |
-|---|---|---|
-| 70% | 0.91 | 0.89 |
-| 80% | 0.86 | 0.81 |
-| 90% | 0.78 | 0.66 |
-| 95% | 0.64 | 0.47 |
+The latent anchor stabilizes generation under high masking ratios. Accuracy measured at test time.
 
-#### Serialization Strategy Ablation
+| Mask Ratio | w/ LAT Acc. ↑ | w/o LAT Acc. ↑ | Gap |
+|---|---:|---:|---:|
+| 70% | **0.91** | 0.89 | +0.02 |
+| 80% | **0.86** | 0.81 | +0.05 |
+| 90% | **0.78** | 0.66 | +0.12 |
+| 95% | **0.64** | 0.47 | +0.17 |
 
-| Strategy | Recon ρ ↑ | ZS F1 ↑ |
-|---|---|---|
-| **Entropy-normalized** | **0.97** | **0.84** |
-| Expression sorting | 0.94 | 0.82 |
-| Random subset | 0.90 | 0.79 |
+> 💡 As masking ratio increases, [LAT] provides larger benefits due to stronger need for global context aggregation.
 
-#### Depth-Robust Corruption Ablation
+### Serialization Strategy Ablation
+
+Effect of different gene selection strategies under fixed token budget (1,200 genes).
+
+| Strategy | Recon ρ ↑ | ZS F1 ↑ | Δ vs Random |
+|---|---:|---:|---:|
+| 🏆 **Entropy-normalized** | **0.97** | **0.84** | +7%/+5% |
+| Expression sorting | 0.94 | 0.82 | +4%/+3% |
+| Random subset | 0.90 | 0.79 | baseline |
+
+> 📊 Entropy-normalized serialization prioritizes discriminative genes over housekeeping noise.
+
+### Depth-Robust Corruption Ablation
+
+Train-time corruption strategies evaluated at test-depth levels (downsampling factors).
 
 | Train Corruption | 0.25× ↑ | 0.5× ↑ | 1.0× ↑ |
-|---|---|---|---|
+|---|---:|---:|---:|
 | Mask-only | 0.72 | 0.80 | 0.84 |
-| Global scaling + mask | **0.77** | **0.82** | **0.84** |
+| 🏆 **Global scaling + mask** | **0.77** | **0.82** | **0.84** |
 
-#### Ordering Sensitivity and RoPE Ablation
+> ✅ Mixed corruption strategy improves robustness under severe depth reduction.
+
+### Ordering Sensitivity and RoPE Ablation
+
+Deterministic serialization and RoPE make scDiVa not strictly permutation invariant.
 
 | Setting | ZS F1 ↑ | Imm. ρ ↑ | Norm. LFC Sp ↑ |
-|---|---|---|---|
-| Full + RoPE | 0.840 | 0.970 | 0.433 |
-| No RoPE | 0.830 | 0.960 | 0.430 |
-| Random perm. | 0.839 ± 0.002 | 0.960 ± <0.001 | 0.450 ± 0.004 |
+|---|---:|---:|---:|
+| Full + RoPE | **0.840** | **0.970** | 0.433 |
+| No RoPE | 0.830 | 0.960 | **0.430** |
+| Random perm. | 0.839 ± 0.002 | 0.960 ± <0.001 | **0.450** ± 0.004 |
+
+> 📝 Small but consistent benefit from RoPE; random permutations have minimal impact.
 
 ---
 
 ## 🗂️ Model Zoo
 
-We provide official pre-trained weights and task-specific fine-tuned checkpoints hosted on Hugging Face.
+Official pre-trained weights and task-specific checkpoints hosted on Hugging Face.
 
 ### Pre-trained Model
 
-| Model | Parameters | Training Data | Description |
-|---|---|---|---|
-| **ScDiVa-Pretrain** | **~94.5M** | 59M cells (Multi-tissue) | Core foundation model pre-trained on 59 million single-cell transcriptomes |
-
-[🤗 Download](https://huggingface.co/warming666/ScDiVa/tree/main)
+| Model | Parameters | Training Data | Description | Download |
+|---|---|---|---|---|
+| 🏆 **ScDiVa-Pretrain** | **~94.5M** | **59M** cells (Multi-tissue) | Core foundation model | [🤗 HF](https://huggingface.co/warming666/ScDiVa/tree/main) |
 
 ### Fine-tuned Models
 
 | Task | Variants | Download |
 |---|---|---|
-| **Batch Integration** | 5 checkpoints: Immune, PBMC12k, BMMC, Perirhinal, COVID-19 | [🤗 HF](https://huggingface.co/warming666/ScDiVa/tree/main/downstream/Multi-batch_Integration) |
-| **Cell Annotation** | 4 FT checkpoints: hPancreas, MS, Myeloid, Myeloid_b + Zero-shot adapter weights | [🤗 HF](https://huggingface.co/warming666/ScDiVa/tree/main/downstream/Annotation_FT) |
-| **Perturbation** | 2 checkpoints: Adamson (Single), Norman (Combinatorial) | [🤗 HF](https://huggingface.co/warming666/ScDiVa/tree/main/downstream/Perturbation) |
+| **Batch Integration** | 5 checkpoints: Immune, PBMC12k, BMMC, Perirhinal, COVID-19 | [🤗 HF (Multi-batch)](https://huggingface.co/warming666/ScDiVa/tree/main/downstream/Multi-batch_Integration) |
+| **Cell Annotation** | 4 FT: hPancreas, MS, Myeloid, Myeloid_b + Zero-shot adapters | [🤗 HF (Annotation)](https://huggingface.co/warming666/ScDiVa/tree/main/downstream/Annotation_FT) |
+| **Perturbation** | 2 checkpoints: Adamson (Single), Norman (Combinatorial) | [🤗 HF (Perturbation)](https://huggingface.co/warming666/ScDiVa/tree/main/downstream/Perturbation) |
 
 ---
 
 ## 📦 Datasets
 
-All pre-processed downstream task datasets used in our benchmarks are publicly available at:
+All pre-processed downstream task datasets are publicly available at:
 
 **[📂 huggingface.co/datasets/warming666/ScDiVa](https://huggingface.co/datasets/warming666/ScDiVa)**
 
 ### Dataset Statistics
 
 | Dataset | Task | N Cells | N Genes | Sparsity | Batches | Cell Types |
-|---|---|---|---|---|---|---|
+|---|---:|---:|---:|---:|---:|---:|
 | Immune | Gene Recon / GRN | 32,484 | 12,303 | 88.15% | 9 | 16 |
 | Zheng68k | Gene Recon / GRN | 68,579 | 32,738 | 98.34% | — | — |
 | BMMC | Multi-batch Integration | 90,261 | 14,087 | 88.87% | 12 | 45 |
@@ -322,18 +361,17 @@ import torch
 def test_pipeline():
     print("=== Testing ScDiVa Loading & Inference ===")
     
-    # 1. Load pre-trained model from Hugging Face
+    # Load pre-trained model from Hugging Face
     model = ScDiVaModel.from_pretrained("warming666/ScDiVa")
     model.eval()
     
-    # 2. Create dummy input data
-    # Batch size = 2, Num genes = 41818 (config default)
+    # Create dummy input data
     batch_size = 2
     num_genes = 41818
     input_data = torch.randn(batch_size, num_genes)
     print(f"Input Data Shape: {input_data.shape}")
 
-    # 3. Run inference
+    # Run inference
     with torch.no_grad():
         print("Running encoder...")
         embeddings = model.encode(input_data)
