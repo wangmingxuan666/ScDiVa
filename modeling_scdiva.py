@@ -306,11 +306,24 @@ class ScDiVaModel(nn.Module):
 
         print(f"[ScDiVa] Loading weights from {ckpt_path}...")
         try:
-            state = torch.load(ckpt_path, map_location=map_location)
-            state_dict = state["state_dict"] if isinstance(state, dict) and "state_dict" in state else state
+            if ckpt_path.endswith(".safetensors"):
+                try:
+                    from safetensors.torch import load_file as safe_load
+                    state_dict = safe_load(ckpt_path, device=map_location)
+                except ImportError:
+                    raise ImportError(
+                        "safetensors package is required to load .safetensors files. "
+                        "Install it with: pip install safetensors"
+                    )
+            else:
+                state = torch.load(ckpt_path, map_location=map_location, weights_only=True)
+                state_dict = state.get("state_dict") or state.get("model_state_dict") or state
             missing, unexpected = model.load_state_dict(state_dict, strict=strict)
-            if missing: print(f"Missing keys: {len(missing)}")
+            if missing: print(f"[ScDiVa] Missing keys ({len(missing)}): {list(missing)[:5]}...")
+            if unexpected: print(f"[ScDiVa] Unexpected keys ({len(unexpected)}): {list(unexpected)[:5]}...")
+            if not missing and not unexpected: print("[ScDiVa] ✅ All weights loaded successfully!")
         except Exception as e:
-            print(f"[ScDiVa] Error loading weights: {e}. Using random init.")
-            
+            print(f"[ScDiVa] Error loading weights: {e}")
+            raise
+
         return model
