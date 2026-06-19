@@ -34,7 +34,7 @@ class Config:
     EOS_GENE_ID = 41817
     MAX_GENE_LEN = 1200
     ROPE_THETA = 10000.0
-    ROPE_MAX_LEN = 2401
+    ROPE_MAX_LEN = 41819
 
     @classmethod
     def from_dict(cls, d):
